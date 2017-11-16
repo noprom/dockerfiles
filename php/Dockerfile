@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
         vim \
         autoconf \
         pkg-config \
+        libssl1.0.0 \
         libssl-dev \
         libgearman-dev \
         libmemcached-dev \
