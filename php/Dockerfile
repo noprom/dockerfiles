@@ -73,7 +73,7 @@ RUN #pecl install /home/memcached.tgz && echo "extension=memcached.so" > /usr/lo
         && pecl install /home/xhprof.tgz && echo "extension=xhprof.so" > /usr/local/etc/php/conf.d/xhprof.ini \
         && pecl install /home/pdo_mysql.tgz && echo "extension=pdo_mysql.so" > /usr/local/etc/php/conf.d/pdo_mysql.ini \
         && pecl install /home/xdebug.tgz && echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini \
-        && pecl install /home/mongodb.tgz && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini
+        && pecl install mongodb-1.3.2 && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini
 #RUN cd /home \
 #    && tar -xvf cphalcon.tgz \
 #    && mv cphalcon-* phalcon \
