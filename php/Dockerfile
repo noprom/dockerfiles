@@ -45,7 +45,7 @@ COPY msgpack.tgz /home/msgpack.tgz
 COPY xdebug.tgz /home/xdebug.tgz
 COPY memcache.tgz /home/memcache.tgz
 COPY xhprof.tgz /home/xhprof.tgz
-COPY cphalcon.tgz /home/cphalcon.tgz
+#COPY cphalcon.tgz /home/cphalcon.tgz
 COPY pdo_mysql.tgz /home/pdo_mysql.tgz
 COPY mongodb-1.3.2.tgz /home/mongodb.tgz
 
@@ -74,10 +74,10 @@ RUN #pecl install /home/memcached.tgz && echo "extension=memcached.so" > /usr/lo
         && pecl install /home/pdo_mysql.tgz && echo "extension=pdo_mysql.so" > /usr/local/etc/php/conf.d/pdo_mysql.ini \
         && pecl install /home/xdebug.tgz && echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini \
         && pecl install /home/mongodb.tgz && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini
-RUN cd /home \
-    && tar -xvf cphalcon.tgz \
-    && mv cphalcon-* phalcon \
-    && cd phalcon/build && ./install && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini
+#RUN cd /home \
+#    && tar -xvf cphalcon.tgz \
+#    && mv cphalcon-* phalcon \
+#    && cd phalcon/build && ./install && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini
 
 # PHP config
 ADD php.ini    /usr/local/etc/php/php.ini
