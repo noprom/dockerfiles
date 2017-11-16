@@ -61,10 +61,8 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
         && docker-php-ext-install ldap \
         && docker-php-ext-install mbstring \
         && docker-php-ext-install mcrypt \
-        #&& docker-php-ext-install mysql \
         && docker-php-ext-install mysqli \
         && docker-php-ext-install zip \
-        && docker-php-ext-install mongo \
         && apt-get purge -y --auto-remove $buildDeps
 
 RUN pecl install /home/memcached.tgz && echo "extension=memcached.so" > /usr/local/etc/php/conf.d/memcached.ini \
