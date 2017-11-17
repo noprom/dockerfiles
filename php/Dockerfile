@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo \
         libmcrypt4 \
         libpng12-0 \
+        libssl-dev \
         sendmail --no-install-recommends \
         && rm -r /var/lib/apt/lists/*
 
@@ -51,6 +52,7 @@ COPY mongodb-1.3.2.tgz /home/mongodb.tgz
 
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
         && docker-php-ext-install zip \
+        && docker-php-ext-install iconv \
         && docker-php-ext-install gd \
         && docker-php-ext-install mbstring \
         && docker-php-ext-install mcrypt \
@@ -73,7 +75,8 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 #&& pecl install /home/pdo_mysql.tgz && echo "extension=pdo_mysql.so" > /usr/local/etc/php/conf.d/pdo_mysql.ini \
 #&& pecl install /home/xdebug.tgz && echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini \
 RUN pecl install /home/redis.tgz && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
-        && pecl install mongodb-1.3.2 && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini
+    && pecl install /home/mongodb.tgz && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini
+
 #RUN cd /home \
 #    && tar -xvf cphalcon.tgz \
 #    && mv cphalcon-* phalcon \
