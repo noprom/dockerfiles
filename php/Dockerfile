@@ -7,7 +7,7 @@ RUN sed -i 's/docker-php-\(ext-$ext.ini\)/\1/' /usr/local/bin/docker-php-ext-ins
 
 # Install env
 ADD sources.list    /etc/apt/sources.list
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --force-yes \
         git \
         vim \
         autoconf \
