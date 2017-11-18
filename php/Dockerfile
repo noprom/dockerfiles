@@ -84,6 +84,7 @@ RUN pecl install /home/redis.tgz && echo "extension=redis.so" > /usr/local/etc/p
 #    && cd phalcon/build && ./install && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini
 
 # PHP config
+RUN mkdir -p /app/log/php
 ADD php.ini    /usr/local/etc/php/php.ini
 ADD php-fpm.conf    /usr/local/etc/php-fpm.conf
 
