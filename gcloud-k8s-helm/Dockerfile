@@ -1,6 +1,6 @@
 FROM google/cloud-sdk:198.0.0-alpine
 
-MAINTAINER Chris Every <eversmcc@gmail.com>
+MAINTAINER Tyee Noprom <tyeenoprom@gmail.com>
 
 RUN apk update \
   && apk add ca-certificates openssl git openssh-client bash \
