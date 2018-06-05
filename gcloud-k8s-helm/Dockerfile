@@ -6,7 +6,7 @@ RUN apk update \
   && apk add ca-certificates openssl git openssh-client bash \
   && rm -rf /var/cache/apk/*
 
-ENV HELM_VERSION v2.9.0
+ENV HELM_VERSION v2.8.1
 ENV HELM_GCS_PLUGIN_VERSION 0.1.4
 
 RUN adduser -S gkh gkh
