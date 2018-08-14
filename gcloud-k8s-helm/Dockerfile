@@ -1,4 +1,4 @@
-FROM google/cloud-sdk:198.0.0-alpine
+FROM google/cloud-sdk:206.0.0-alpine
 
 MAINTAINER Tyee Noprom <tyeenoprom@gmail.com>
 
@@ -13,6 +13,7 @@ RUN adduser -S gkh gkh
 
 RUN gcloud components install docker-credential-gcr -q --no-user-output-enabled
 RUN gcloud components install kubectl -q --no-user-output-enabled
+RUN gcloud components install gsutil -q --no-user-output-enabled
 RUN curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
 RUN chmod 700 get_helm.sh
 RUN ./get_helm.sh --version $HELM_VERSION
