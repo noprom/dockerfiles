@@ -1,4 +1,4 @@
-FROM nginx:1.9.0
+FROM nginx:1.15.5
 
 # Install env
 ADD sources.list    /etc/apt/sources.list
