@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 ENV NGINX_VERSION   1.16.0
-ADD nginx.conf      /etc/nginx/nginx.conf
+ADD nginx.conf      /usr/local/nginx/conf/nginx.conf
 
 RUN apt-get update && apt-get install -y wget build-essential && \
 	wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.42.tar.gz && \
@@ -15,12 +15,9 @@ RUN apt-get update && apt-get install -y wget build-essential && \
 	./config --prefix=/usr && \
 	make && make install && cd .. && \
 	wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
-	tar zxf nginx-${NGINX_VERSION}.tar.gz && \
+	tar zxf nginx-${NGINX_VERSION}.tar.gz && la -al && \
 	cd nginx-${NGINX_VERSION} && \
 	./configure && \
-	--sbin-path=/usr/local/bin && \
-	--conf-path=/etc/nginx/nginx.conf && \
-	--pid-path=/var/run/nginx.pid && \
 	--with-pcre=../pcre-8.42 && \
 	--with-zlib=../zlib-1.2.11 && \
 	--with-http_ssl_module && \
