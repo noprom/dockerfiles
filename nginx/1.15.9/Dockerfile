@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y wget build-essential && \
 	./config --prefix=/usr && \
 	make && make install && cd .. && \
 	wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
-	tar zxf nginx-${NGINX_VERSION}.tar.gz && la -al && \
+	tar zxf nginx-${NGINX_VERSION}.tar.gz && ls -al && \
 	cd nginx-${NGINX_VERSION} && \
 	./configure && \
 	--with-pcre=../pcre-8.42 && \
