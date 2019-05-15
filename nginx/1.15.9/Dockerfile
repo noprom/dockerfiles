@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y wget build-essential && \
 	--sbin-path=/usr/local/bin/nginx && \
 	--conf-path=/etc/nginx/nginx.conf && \
 	--pid-path=/var/run/nginx.pid && \
-	--with-pcre=../pcre-8.42
-	--with-zlib=../zlib-1.2.11
+	--with-pcre=../pcre-8.42 && \
+	--with-zlib=../zlib-1.2.11 && \
 	--with-http_ssl_module && \
 	--with-stream && \
 	make && sudo make install
