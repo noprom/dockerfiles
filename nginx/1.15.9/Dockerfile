@@ -3,7 +3,8 @@ FROM ubuntu:18.04
 ENV NGINX_VERSION   1.16.0
 ADD nginx.conf      /etc/nginx/nginx.conf
 
-RUN wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
+RUN apt-get update && apt-get install -y wget && \
+	wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
 	tar zxf nginx-${NGINX_VERSION}.tar.gz && \
 	cd nginx-${NGINX_VERSION} && \
 	./configure && \
