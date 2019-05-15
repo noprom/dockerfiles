@@ -12,13 +12,13 @@ RUN apt-get update && apt-get install -y wget build-essential && \
 	./configure && make && make install && cd .. && \
 	wget http://www.openssl.org/source/openssl-1.1.1b.tar.gz && \
 	tar -zxf openssl-1.1.1b.tar.gz && cd openssl-1.1.1b && \
-	./Configure darwin64-x86_64-cc --prefix=/usr && \
+	./config --prefix=/usr && \
 	make && make install && cd .. && \
 	wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
 	tar zxf nginx-${NGINX_VERSION}.tar.gz && \
 	cd nginx-${NGINX_VERSION} && \
 	./configure && \
-	--sbin-path=/usr/local/bin/nginx && \
+	--sbin-path=/usr/local/bin && \
 	--conf-path=/etc/nginx/nginx.conf && \
 	--pid-path=/var/run/nginx.pid && \
 	--with-pcre=../pcre-8.42 && \
