@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
-ENV NGINX_VERSION   1.16.0
+ENV NGINX_VERSION=1.16.0 \
+    PATH="/usr/local/nginx/sbin:${PATH}"
 ADD nginx.conf      /usr/local/nginx/conf/nginx.conf
 RUN apt-get update && apt-get install -y wget build-essential && cd / && \
     wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.42.tar.gz && \
@@ -19,4 +20,4 @@ RUN apt-get update && apt-get install -y wget build-essential && cd / && \
     make && make install
 
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
