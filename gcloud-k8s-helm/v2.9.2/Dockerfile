@@ -6,7 +6,7 @@ RUN apk update \
   && apk add ca-certificates openssl git openssh-client bash zip vim \
   && rm -rf /var/cache/apk/*
 
-ENV HELM_VERSION v2.9.1
+ENV HELM_VERSION v2.9.3
 ENV HELM_GCS_PLUGIN_VERSION 0.1.4
 
 RUN gcloud components install docker-credential-gcr -q --no-user-output-enabled
